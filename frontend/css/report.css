@@ -1,0 +1,194 @@
+/* =========================
+   GLOBAL
+========================= */
+:root{
+  --bg: #eef6ff;
+  --card: #ffffff;
+  --text: #0b1a2b;
+  --muted: #5c6f86;
+  --primary: #2a7bd6;
+  --primary-dark: #1f63b0;
+  --border: #d6e6fb;
+  --radius: 14px;
+  --shadow: 0 10px 28px rgba(15, 55, 100, 0.12);
+}
+
+*{
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+body{
+  margin: 0;
+  background: radial-gradient(1200px 600px at 20% 0%, #d9eeff 0%, var(--bg) 55%);
+  color: var(--text);
+}
+
+/* =========================
+   TOPBAR
+========================= */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(152, 183, 237, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.topbar-inner{
+  max-width: 1300px;
+  margin: auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand{
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.muted{
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.btn{
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #f7fbff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn.primary{
+  background: linear-gradient(180deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  border: none;
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+}
+
+/* =========================
+   LAYOUT
+========================= */
+.container{
+  max-width: 1300px;
+  margin: auto;
+  padding: 24px;
+}
+
+/* =========================
+   FILTERS
+========================= */
+.filters{
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr auto;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.filters input{
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: #fbfdff;
+  outline: none;
+}
+
+.filters input:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(42,123,214,0.12);
+}
+
+/* =========================
+   TABLE
+========================= */
+.table-wrap{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.report-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 1400px;
+}
+
+.report-table thead th{
+  background: #f4f9ff;
+  font-size: 13px;
+  text-align: left;
+  padding: 12px;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.report-table tbody td{
+  padding: 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.report-table tbody tr:hover{
+  background: #f7fbff;
+}
+
+/* =========================
+   PROFIT COLORS
+========================= */
+.profit-positive{
+  color: #1f9d55;
+  font-weight: 700;
+}
+
+.profit-negative{
+  color: #e11d48;
+  font-weight: 700;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px){
+  .filters{
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.topbar-inner{
+  max-width: 100% !important;   /* was 1100px */
+  margin: 0 !important;         /* remove centering */
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Brand must stay on the far left */
+.brand{
+  margin-right: auto !important;   /* pushes actions to right */
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+/* Logo itself */
+.company-logo{
+  display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}

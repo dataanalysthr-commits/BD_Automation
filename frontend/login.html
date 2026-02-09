@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login | Facility Dashboard</title>
+  <link rel="stylesheet" href="css\login.css" />
+</head>
+<body>
+  <div class="page">
+    <div class="card auth-card">
+      <h1 class="title">Login</h1>
+      <p class="subtitle">Enter your ID and password to continue.</p>
+      <form id="loginForm" class="form">
+        <label class="label" for="userId">User ID</label>
+        <input class="input" id="userId" name="userId" type="text" autocomplete="username" required />
+        <label class="label" for="password">Password</label>
+        <input class="input" id="password" name="password" type="password" autocomplete="current-password" required />
+        <button class="btn primary" type="submit">Sign In</button>
+        <div id="loginError" class="hint error" aria-live="polite"></div>
+        <div class="hint">
+          Demo credentials:
+          <span class="pill">admin</span>
+          <span class="pill">admin123</span>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script src="js/login.js"></script>
+</body>
+</html>

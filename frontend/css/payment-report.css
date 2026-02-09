@@ -1,0 +1,172 @@
+:root{
+  --bg:#ffffff;
+  --text:#0f172a;
+  --muted:#64748b;
+  --line:#dbe7ff;
+
+  --topbar:#c6d4f2;
+  --pill:#8ea6f0;
+
+  --shadow:0 10px 24px rgba(15,23,42,.12);
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* ===== TOPBAR ===== */
+.topbar{
+  background: var(--topbar);
+  padding: 16px 22px;
+  border-bottom: 1px solid rgba(152, 183, 237, 0.75);
+
+  display:flex;
+  align-items:center;
+  gap: 14px;
+}
+
+/* pushes buttons to far right */
+.topbar h2{
+  margin:0;
+  margin-right:auto;
+  font-size:28px;
+  font-weight:900;
+}
+
+/* Style BOTH buttons on right (Commission + Logout) */
+#goCommissionBtn,
+#logoutBtn{
+  border:0;
+  background: var(--pill);
+  color:#0f172a;
+  font-weight:800;
+  padding: 10px 18px;
+  border-radius: 999px;
+  cursor:pointer;
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+}
+
+#goCommissionBtn:hover,
+#logoutBtn:hover{
+  filter: brightness(0.97);
+}
+
+/* If your ".btn.ghost" or other button styles override it */
+.btn.ghost{
+  background: var(--pill) !important;
+}
+
+/* ===== PAGE CONTAINER ===== */
+.container{
+  max-width: 1150px;
+  margin: 24px auto;
+  padding: 0 20px;
+}
+
+/* ===== FILTERS ===== */
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:16px;
+  align-items:center;
+}
+
+input{
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight:600;
+  outline:none;
+}
+
+input:focus{
+  border-color: rgba(29,99,255,.45);
+  box-shadow: 0 0 0 4px rgba(29,99,255,.12);
+}
+
+/* default button (Apply etc.) */
+button{
+  padding:10px 14px;
+  border-radius:14px;
+  border:0;
+  background: var(--pill);
+  font-weight:800;
+  cursor:pointer;
+}
+
+/* Save Payment button (keep your class name) */
+.btn.primary{
+  background: linear-gradient(180deg,#1d63ff,#0f54e8);
+  color:#fff;
+  border-radius: 999px;
+  padding: 12px 18px;
+}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:#c9dced;
+  border:1px solid var(--line);
+  border-radius:18px;
+  overflow:hidden;
+}
+
+thead th{
+  background:#a7c6ee;
+  padding:14px 16px;
+  font-weight:900;
+  text-align:left;
+}
+
+tbody td{
+  padding:14px 16px;
+  border-bottom:1px solid #e1ebff;
+  font-weight:600;
+}
+
+tbody tr:hover td{
+  background:#f7fbff;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 900px){
+  .filters{ flex-direction:column; align-items:stretch; }
+  input, button{ width:100%; }
+  .topbar{ flex-wrap:wrap; }
+}
+
+
+.topbar-inner{
+  max-width: 100% !important;   /* was 1100px */
+  margin: 0 !important;         /* remove centering */
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Brand must stay on the far left */
+.brand{
+  margin-right: auto !important;   /* pushes actions to right */
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+/* Logo itself */
+.company-logo{
+  display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}

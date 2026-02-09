@@ -1,0 +1,202 @@
+<!-- dashboard.html (FULL + FINAL) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard | Facility Site Sheet</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner"     
+    style="
+         max-width:100%;
+         margin:0;
+         padding-left:24px;
+         padding-right:24px;
+         display:flex;
+         align-items:center;
+         justify-content:space-between;
+       "  >
+      <div>
+        <div class="brand"  
+        style="
+           display:flex;
+           align-items:center;
+           gap:12px;
+           margin-right:auto;
+         ">
+          <img src="Logo Facility .png" alt="Company Logo" class="company-logo"  style="
+             height:42px;
+             width:auto;
+             object-fit:contain;
+             display:block;
+           ">
+          <h2>Facility Site Sheet</h2>
+        </div>
+     
+      </div>
+      <div class="topbar-actions">
+        <button class="btn" id="logoutBtn" type="button">Logout</button>
+      </div>
+    </div>
+  </header>
+
+
+  <main class="container">
+    <div class="grid-1">
+
+      <!-- ✅ Site Details -->
+      <section class="card">
+        <h2 class="section-title">Site Details</h2>
+
+        <div class="row">
+          <div class="field">
+            <label class="label" for="siteName">Site Name</label>
+            <input class="input" id="siteName" type="text" placeholder="e.g., ABC Towers" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="invoiceNumber">Invoice Number</label>
+            <input class="input" id="invoiceNumber" type="text" placeholder="4535" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="managerId">Manager ID</label>
+            <input class="input" id="managerId" type="text" placeholder="1231" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="reportingManager">Reporting Manager</label>
+            <input class="input" id="reportingManager" type="text" placeholder="e.g., Rahul Sharma" required />
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="field">
+            <label class="label" for="updateDate">Update Date</label>
+            <input class="input" id="updateDate" type="date" required />
+          </div>
+
+          <div class="field">
+            <label class="label" for="billingMonth">Billing Month</label>
+            <input class="input" id="billingMonth" type="month" required />
+          </div>
+        </div>
+      </section>
+
+      <!-- ✅ Employees -->
+      <section class="card">
+        <div class="section-head">
+          <h2 class="section-title">Employees / Services</h2>
+
+          <div class="right-actions">
+            <button class="btn primary" id="addEmployeeBtn" type="button">+ Add Employee</button>
+            <input type="file" id="employeeFile" accept=".csv,.xlsx,.xls" />
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <table class="table" id="employeeTable">
+            <thead>
+              <tr>
+                <th>Designation</th>
+                <th>Service Provided</th>
+                <th>Employee Name</th>
+                <th class="right">Salary (As per Invoice)</th>
+                <th class="right">Salary (As per Actual)</th>
+                <th class="right">Action</th>
+              </tr>
+            </thead>
+            <tbody id="employeeTbody">
+              <!-- Rows inserted by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="hint">
+          Tip: Salary is per employee (numbers only). You can add/remove rows.
+        </div>
+      </section>
+
+      <!-- ✅ Client Charges (ONLY 2 CARDS) -->
+      <section class="card">
+        <h2 class="section-title">Client Charges</h2>
+
+        <div class="charges-grid two-cards">
+
+          <!-- Service Fee -->
+          <div class="charge-card">
+            <div class="card-header-row">
+              <h3 class="charge-title">Service Fee</h3>
+
+              <div class="mini-percent">
+                <label for="serviceFeePercent">%</label>
+                <input id="serviceFeePercent" class="mini-input percent-input"
+                       type="number" min="0" max="100" step="0.01" placeholder="0">
+              </div>
+            </div>
+
+            <label class="field-label" for="serviceFeeInvNo">Invoice Number</label>
+            <input id="serviceFeeInvNo" class="mini-input" type="text" placeholder="108">
+
+            <label class="field-label" for="serviceFeeDate">Date</label>
+            <input id="serviceFeeDate" class="mini-input" type="date" required>
+
+            <label class="field-label" for="serviceFeeInvoice">Amount (As per Invoice)</label>
+            <input id="serviceFeeInvoice" class="mini-input" type="number" min="0" step="0.01" placeholder="0.00">
+
+            <label class="field-label" for="serviceFeeActual">Amount (As per Actual)</label>
+            <input id="serviceFeeActual" class="mini-input" type="number" min="0" step="0.01" placeholder="0.00">
+<!-- 
+            <label class="field-label" for="serviceFeeTax">Tax %</label>
+            <input id="serviceFeeTax" class="mini-input" type="number" min="0" step="0.01" value="18"> -->
+          </div>
+
+          <!-- Material Cost -->
+          <div class="charge-card">
+            <div class="card-header-row">
+              <h3 class="charge-title">Material Cost</h3>
+
+              <div class="mini-percent">
+                <label for="materialCostPercent">%</label>
+                <input id="materialCostPercent" class="mini-input percent-input"
+                       type="number" min="0" max="100" step="0.01" placeholder="0">
+              </div>
+            </div>
+
+            <label class="field-label" for="materialCostInvNo">Invoice Number</label>
+            <input id="materialCostInvNo" class="mini-input" type="text" placeholder="108">
+
+            <label class="field-label" for="materialCostDate">Date</label>
+            <input id="materialCostDate" class="mini-input" type="date" required>
+
+            <label class="field-label" for="materialCostInvoice">Amount (As per Invoice)</label>
+            <input id="materialCostInvoice" class="mini-input" type="number" min="0" step="0.01" placeholder="0.00">
+
+            <label class="field-label" for="materialCostActual">Amount (As per Actual)</label>
+            <input id="materialCostActual" class="mini-input" type="number" min="0" step="0.01" placeholder="0.00">
+
+            <!-- <label class="field-label" for="materialCostTax">Tax %</label>
+            <input id="materialCostTax" class="mini-input" type="number" min="0" step="0.01" value="18"> -->
+          </div>
+
+        </div>
+
+        <div class="btn-row">
+          <button id="clearBtn" class="btn ghost" type="button">Clear Form</button>
+          <button id="downloadReportBtn" class="btn primary" type="button">Save</button>
+        </div>
+
+        <p id="statusMsg" class="status-msg"></p>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

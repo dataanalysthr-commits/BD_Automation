@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Financial Summary Report</title>
+  <link rel="stylesheet" href="css/report.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <img src="Logo Facility .png" alt="Company logo" class="company-logo">
+      <div class="brand">Facility Financial Report</div>
+
+
+    <div class="topbar-actions">
+      <button class="btn" id="logoutBtn" type="button">Logout</button>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- Filters -->
+  <div class="filters" id="pnlFilters">
+    <input type="text" id="siteFilter" placeholder="Site Name">
+    <input type="month" id="monthFilter">
+    <input type="text" id="managerFilter" placeholder="Manager ID">
+    <button class="btn primary" id="applyFilter">Apply</button>
+  </div>
+
+  <!-- Report Table -->
+  <div class="table-wrap">
+    <table class="report-table">
+      <thead>
+        <tr>
+          <th>Site Name</th>
+          <th>Month</th>
+          <th>Manager ID</th>
+
+          <th>Salary (Invoice)</th>
+          <th>Salary (Actual)</th>
+
+          <th>Service Fee (Actual)</th>
+          <th>Material Cost (Invoice)</th>
+          <th>Material Cost (Actual)</th>
+
+          <th>Commission (Invoice)</th>
+          <th>Commission (Actual)</th>
+
+          <th>Total To Client</th>
+          <th>Actual Expense</th>
+
+          <th>Salary</th>
+          <th>Conveyance</th>
+          <th>Impressed</th>
+
+          <th>Profit (Invoice)</th>
+          <th>Profit (Actual)</th>
+        </tr>
+      </thead>
+
+      <tbody id="reportTbody">
+        <!-- Rows injected by JS -->
+      </tbody>
+    </table>
+  </div>
+
+<!-- LEDGER FILTERS -->
+<h3 style="margin-top:30px;">Client Ledger</h3>
+
+<div class="filters" id="ledgerFilters">
+  <input type="text" id="ledgerSite" placeholder="Site Name">
+  <input type="text" id="ledgerInvoice" placeholder="Invoice No">
+  <input type="month" id="ledgerMonth">
+  <button class="btn primary" id="ledgerApplyBtn">Apply</button>
+</div>
+
+<!-- LEDGER TABLE -->
+<div class="table-wrap">
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Site</th>
+        <th>Month</th>
+        <th>Invoice</th>
+        <th>Total</th>
+        <th>Payment</th>
+        <th>Month Due</th>
+        <th>Closing Balance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="ledgerTbody"></tbody>
+  </table>
+</div>
+
+<h3 style="margin-top:30px;">Commission Ledger</h3>
+
+<div class="filters" id="commissionLedgerFilters">
+  <input type="text" id="cSiteFilter" placeholder="Site Name">
+  <input type="text" id="cInvoiceFilter" placeholder="Invoice No">
+  <input type="month" id="cMonthFilter">
+  <button class="btn primary" id="cApplyBtn">Apply</button>
+</div>
+
+<div class="table-wrap">
+  <table class="report-table">
+    <thead>
+      <tr>
+        <th>Site</th>
+        <th>Month</th>
+        <th>Invoice</th>
+        <th>Total Commission</th>
+        <th>Payment</th>
+        <th>Month Due</th>
+        <th>Closing Balance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="commissionLedgerTbody"></tbody>
+  </table>
+</div>
+
+
+</main>
+
+
+
+<script src="js/report.js"></script>
+</body>
+</html>

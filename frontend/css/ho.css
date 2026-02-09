@@ -1,0 +1,323 @@
+:root{
+  --bg: #f5f8ff;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: rgba(40,110,200,0.14);
+
+  --primary: #1d63ff;
+  --primary-2: #0f54e8;
+
+  --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+  --shadow-soft: 0 10px 28px rgba(15, 23, 42, 0.06);
+
+  --r-lg: 26px;
+  --r-md: 18px;
+  --r-sm: 14px;
+}
+
+*{ box-sizing: border-box; }
+
+html, body{ height:100%; }
+
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+/* soft glow like screenshot */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(900px 420px at 18% 10%, rgba(29,99,255,0.10), transparent 60%),
+    radial-gradient(900px 420px at 85% 18%, rgba(14,165,233,0.08), transparent 60%);
+  pointer-events:none;
+}
+
+.page{ min-height:100vh; }
+
+/* ===== TOPBAR (white, clean) ===== */
+.topbar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(152, 183, 237, 0.75);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(230,238,252,0.9);
+}
+
+.topbar-inner{
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 14px 18px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+  min-width: 260px;
+}
+
+.company-logo{
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Title centered like screenshot */
+.brand h1{
+  margin:0;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+}
+
+.brand p{
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.topbar-actions{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+
+/* Logout pill */
+.link-btn{
+  text-decoration:none;
+  padding: 10px 18px;
+  border-radius: 999px;
+  border: 0;
+  background: #f1f5f9;
+  color:#0f172a;
+  font-weight: 800;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+.link-btn:hover{ filter: brightness(0.98); }
+
+/* ===== PAGE CONTAINER ===== */
+.container{
+  max-width: 1120px;
+  margin: 26px auto;
+  padding: 0 18px 34px;
+}
+
+/* Big centered card like screenshot */
+.card{
+  background: var(--card);
+  border-radius: var(--r-lg);
+  padding: 26px;
+  border: 1px solid rgba(230,238,252,0.95);
+  box-shadow: var(--shadow);
+}
+
+/* Header row inside card */
+.card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* "Assigned HO Employees" */
+.section-title{
+  margin:0;
+  font-size: 34px;
+  font-weight: 950;
+  letter-spacing: -0.02em;
+}
+
+/* Month input beside title (no negative margins) */
+.month-input{
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(219,231,255,0.95);
+  background: #fff;
+  color: #0f172a;
+  font-weight: 700;
+  outline: none;
+  min-width: 210px;
+  box-shadow: 0 8px 18px rgba(15,23,42,.04);
+  cursor: pointer;
+  margin: 0;           /* ✅ remove the -40% */
+}
+
+/* Right side button in card header (+ Add HO Employee) */
+.btn.primary{
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  font-weight: 950;
+  cursor:pointer;
+  background: linear-gradient(180deg, var(--primary), var(--primary-2));
+  color: white;
+  box-shadow: var(--shadow-soft);
+}
+.btn.primary:hover{ filter: brightness(1.02); }
+
+/* ===== TABLE LOOK ===== */
+.table-wrap{
+  margin-top: 16px;
+  border-radius: var(--r-md);
+  border: 1px solid rgba(219,231,255,0.95);
+  overflow:hidden;
+  background:#fff;
+}
+
+/* keep wide table scroll if needed */
+.table-wrap{ overflow:auto; }
+
+.data-table{
+  width:100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 980px;
+  background:#fff;
+}
+
+/* Rounded header bar look */
+.data-table thead th{
+  background: #eff6ff;
+  color: #0b2a53;
+  font-weight: 950;
+  font-size: 14px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(219,231,255,0.95);
+}
+
+/* Body rows */
+.data-table tbody td{
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(219,231,255,0.8);
+  background:#fff;
+  font-weight: 650;
+}
+
+.data-table tbody tr:hover td{
+  background: #fbfdff;
+}
+
+.right{ text-align:right; }
+
+/* inputs inside table */
+.mini-input{
+  width: 100%;
+  min-width: 120px;
+  height: 42px;
+  padding: 0 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(219,231,255,0.95);
+  outline:none;
+  font-weight: 700;
+  background:#fff;
+}
+
+.total-pill{
+  display:inline-block;
+  min-width: 120px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(219,231,255,0.95);
+  background: #f4f8ff;
+  font-weight: 950;
+  color:#0b2b4d;
+  text-align: right;
+}
+
+/* bottom buttons (Clear / Save) */
+.btn-row{
+  display:flex;
+  justify-content:flex-end;
+  gap: 12px;
+  margin-top: 18px;
+  flex-wrap: wrap;
+}
+
+.btn{
+  border:none;
+  border-radius: 16px;
+  padding: 12px 18px;
+  font-weight: 900;
+  cursor:pointer;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.06);
+}
+
+.btn.ghost{
+  background: #fff;
+  border: 1px solid rgba(219,231,255,0.95);
+  color:#0b2b4d;
+  box-shadow: 0 10px 22px rgba(15, 23, 42, 0.05);
+}
+
+.hint{
+  margin: 12px 0 0;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.status-msg{
+  margin-top: 10px;
+  font-size: 13px;
+  font-weight: 850;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+  .section-title{ font-size: 28px; }
+  .topbar-inner{ padding: 12px 14px; }
+  .data-table{ min-width: 920px; }
+}
+/* ===== FORCE LOGO TO TRUE TOP-LEFT (full width topbar) ===== */
+.topbar-inner{
+  max-width: 100% !important;   /* was 1100px */
+  margin: 0 !important;         /* remove centering */
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+}
+
+/* Brand must stay on the far left */
+.brand{
+  margin-right: auto !important;   /* pushes actions to right */
+  justify-content: flex-start !important;
+  align-items: center !important;
+}
+
+/* Logo itself */
+.company-logo{
+  display: block !important;
+  height: 38px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+
+
+.ho-actions{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+#employeeFile{
+  width: 220px; /* optional */
+}

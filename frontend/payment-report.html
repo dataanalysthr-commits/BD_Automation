@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Status Report</title>
+  <link rel="stylesheet" href="css/payment-report.css">
+</head>
+<body>
+
+<header class="topbar">
+  <img src="Logo Facility .png" alt="Company logo" class="company-logo">
+  <h2>Client Payment</h2>
+  <button class="btn ghost" id="goCommissionBtn">
+      Commission Payments →
+    </button>
+  <button id="logoutBtn">Logout</button>
+</header>
+
+<main class="container">
+
+  <!-- INPUT / FILTER SECTION -->
+  <div class="filters" id="PRFilters">
+    <input id="siteInput" placeholder="Site Name">
+    <input id="invoiceInput" placeholder="Invoice Number">
+    <input id="monthInput" type="month">
+    <input id="paymentInput" type="number" placeholder="Payment Amount">
+    <input id="paymentDateInput" type="date" placeholder="Payment Date">
+    <input id="referenceInput" type="number" placeholder="Reference Number">
+    <button id="applyBtn">Apply</button>
+    <button id="savePaymentBtn" class="btn primary">Save Payment</button>
+  </div>
+
+  <!-- REPORT TABLE -->
+  <table>
+    <thead>
+      <tr>
+        <th>Site</th>
+        <th>Invoice</th>
+        <th>Month</th>
+        <th>Total To Client</th>
+        <th>Payment Amount</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="reportBody"></tbody>
+  </table>
+
+</main>
+
+<script src="js/payment-report.js"></script>
+
+<script src="js/payment.js"></script>
+</body>
+</html>

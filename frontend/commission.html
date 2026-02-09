@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Client Commission</title>
+  <link rel="stylesheet" href="css/commission.css" />
+</head>
+
+<body>
+  <div class="page">
+
+    <!-- Top Bar -->
+    <header class="topbar">
+  <div class="topbar-inner">
+
+    <div class="brand">
+      <div class="logo"><img src="Logo Facility .png" alt="Company logo" class="company-logo"></div>
+      <div class="brand-text">
+        <h1>Facility System</h1>
+        <p>Client Commission Entry</p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <button class="btn" id="logoutBtn" type="button">Logout</button>
+    </div>
+
+  </div>
+</header>
+
+
+    <!-- Main -->
+    <main class="container">
+      <section class="card">
+
+        <div class="card-head">
+          <h2 class="section-title">Client Commission (Per Purchase)</h2>
+        </div>
+
+        <!-- FORM START -->
+        <form id="commissionForm">
+
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="clientInvoiceNumber">Client Invoice Number</label>
+              <input id="clientInvoiceNumber" name="clientInvoiceNumber" type="text" placeholder="e.g., INV-4535" required />
+            </div>
+            <div class="field">
+              <label for="siteName">Site Name</label>
+              <input id="siteName" name="siteName" type="text" placeholder="e.g., Supertech" required />
+            </div>
+
+            <div class="field">
+              <label for="clientInvoiceDate">Date (as per Client Invoice)</label>
+              <input id="clientInvoiceDate" name="clientInvoiceDate" type="date" required />
+            </div>
+            <div class="field">
+              <label for="commissionMonth">Commission Month</label>
+              <input id="commissionMonth" name="commissionMonth" type="month" class="month-input" required />
+            </div>
+
+            <div class="field full">
+              <label>Client Commission per Purchase</label>
+
+              <div class="two-col">
+                <div class="subfield">
+                  <span class="sub-label">As per Invoice</span>
+                  <input id="commissionInvoice" name="commissionInvoice" class="mini-input" type="number" step="0.01" placeholder="0" required />
+                </div>
+
+                <div class="subfield">
+                  <span class="sub-label">As per Actual</span>
+                  <input id="commissionActual" name="commissionActual" class="mini-input" type="number" step="0.01" placeholder="0" required />
+                </div>
+              </div>
+
+              <p class="hint">Enter commission amount per purchase. Use numbers only.</p>
+            </div>
+
+          </div>
+
+          <div class="btn-row">
+            <button id="clearBtn" class="btn ghost" type="reset">Clear</button>
+            <button id="saveBtn" class="btn primary" type="submit">Save</button>
+          </div>
+
+          <p id="statusMsg" class="status-msg"></p>
+
+        </form>
+        <!-- FORM END -->
+
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/commission.js"></script>
+</body>
+</html>

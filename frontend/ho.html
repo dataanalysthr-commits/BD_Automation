@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HO Employees</title>
+  <link rel="stylesheet" href="css\ho.css" />
+</head>
+
+<body>
+    <div class="page">
+  <header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="logo"><img src="Logo Facility .png" alt="Company logo" class="company-logo"></div>
+      <div>
+        <h1>Facility System</h1>
+        <p>HO Employee Assignment</p>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn" id="logoutBtn">Logout</button>
+    </div>
+  </div>
+</header>
+
+
+    <main class="container">
+      <section class="card">
+       <div class="card-head">
+  <h2 class="section-title">Assigned HO Employees</h2>
+  <input type="month" class="month-input" />
+
+  <div class="ho-actions">
+    <button id="addHoEmployeeBtn" class="btn primary" type="button">+ Add HO Employee</button>
+    <input type="file" id="employeeFile" accept=".csv,.xlsx,.xls" />
+  </div>
+</div>
+
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Manager ID</th>
+                <th>Employee ID-Name</th>
+
+                <th class="right">Salary</th>
+                <th class="right">Conveyance </th>
+                <th class="right">Impressed</th>
+                  
+                <th class="right">Total</th>
+                <th class="right">Action</th>
+              </tr>
+            </thead>
+
+            <tbody id="hoTbody"></tbody>
+          </table>
+        </div>
+
+        <p class="hint">
+          Rule: If "Actual" is empty, system automatically uses "Invoice" as Actual.
+        </p>
+
+        <div class="btn-row">
+          <button id="clearHoBtn" class="btn ghost" type="button">Clear</button>
+          <button id="saveHoBtn" class="btn primary" type="button">Save</button>
+        </div>
+
+        <p id="statusMsg" class="status-msg"></p>
+      </section>
+    </main>
+  </div>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script src="js/ho.js"></script>
+
+</body>
+</html>
